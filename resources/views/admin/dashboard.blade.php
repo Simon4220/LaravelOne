@@ -21,7 +21,7 @@
     </div>
     <div class="row">
         <div class="col-sm-6">
-            <a class="btn btnblock btn-default" href="#">Создать страницу</a>
+            <a class="btn btnblock btn-default" href="{{route('admin.page.create')}}">Создать страницу</a>
             <a class="list-group-item" href="#">
                 <h4 class="list-gpoup-item-heading">Страницы</h4>
                 <p class="list-group-item-text">
@@ -30,7 +30,7 @@
             </a>
         </div>
         <div class="col-sm-6">
-            <a class="btn btnblock btn-default" href="#">Создать материал</a>
+            <a class="btn btnblock btn-default" href="{{route('admin.material.create')}}">Создать материал</a>
             <a class="list-group-item" href="#">
                 <h4 class="list-gpoup-item-heading">Материалы</h4>
                 <p class="list-group-item-text">
