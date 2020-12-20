@@ -70,7 +70,11 @@ class MaterialController extends Controller
      */
     public function edit(Material $material)
     {
-        //
+        return view('admin.materials.edit', [
+            'material'    => $material,
+            'pages' => page::with('children')->where('parent_id', 0)->get(),
+            'delimiter'  => ''
+          ]);
     }
 
     /**
@@ -82,7 +86,14 @@ class MaterialController extends Controller
      */
     public function update(Request $request, Material $material)
     {
-        //
+        $material->update($request->except('slug'));
+
+        $material->pages()->detach();
+        if($request->input('pages')) :
+            $material->pages()->attach($request->input('pages'));
+        endif;
+
+        return redirect()->route('admin.material.index');
     }
 
     /**

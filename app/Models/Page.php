@@ -17,7 +17,16 @@ class Page extends Model
       $this->attributes['slug'] = Str::slug( mb_substr($this->title, 0, 40) . "-" . \Carbon\Carbon::now()->format('dmyHis'), '-');
     }
 
-    public function children(){
+    public function children()
+    {
         return $this->hasMany(self::class, 'parent_id');
+    }
+
+    public function materials()
+    {
+      return $this->morphedByMany('App\Models\Material', 'pageable');
+    }
+    public function scopeLastPages($query, $count){
+      return $query->orderBy('created_at', 'desc')->take($count)->get();
     }
 }

@@ -20,4 +20,7 @@ class Material extends Model
     {
         return $this->morphToMany('App\Models\Page', 'pageable');
     }
+    public function scopeLastMaterials($query, $count){
+        return $query->orderBy('created_at', 'desc')->take($count)->get();
+      }
 }

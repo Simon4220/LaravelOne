@@ -18,7 +18,7 @@ class CreateMaterialsTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('theme')->nullable();
-            $table->text('text')->nullable();
+            $table->text('description')->nullable();
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_keyword')->nullable();
@@ -39,3 +39,4 @@ class CreateMaterialsTable extends Migration
         Schema::dropIfExists('materials');
     }
 }
+

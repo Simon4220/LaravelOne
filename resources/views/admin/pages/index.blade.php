@@ -47,7 +47,7 @@
         <tr>
             <td colspan="3">
                 <ul class="pagination pull-right">
-                        {{$pages->links('vendor.pagination.bootstrap-4'))}}
+                        {{$pages->links('vendor.pagination.bootstrap-4')}}
                 </ul>
             </td>
         </tr>

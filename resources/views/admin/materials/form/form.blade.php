@@ -21,12 +21,11 @@ value='{{$material->title ?? ""}}' required>
   @include('admin.materials.form.materials', ['$pages' => $pages])
 </select>
 
-<label for="">Тема материала</label>
-<textarea class="form-control" id="theme" name="theme" placeholder="Описание" >{{$material->theme ?? ""}}</textarea>
+<label for="">Краткое описание</label>
+<input class="form-control" id="theme" name="theme" value="{{$material->theme ?? ''}}" placeholder="Описание">
 
-
-<label for="">Описание материала</label>
-<textarea class="form-control" id="text" name="text" placeholder="Описание" >{{$material->text ?? ""}}</textarea>
+<label for="">Полное описание</label>
+<textarea rows="10" class="form-control" id="description" name="description" >{{$material->description ?? ""}}</textarea>
 
 <label for="">Мета заголовок</label>
 <input type="text" class="form-control" name="meta_title" value='{{$material->meta_title ?? ""}}' required>

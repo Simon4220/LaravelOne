@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class SiteServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,13 @@ class SiteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->Nav();
+    }
+
+    public function Nav(){
+        view::composer('user.home', function ($view){
+            $view->with('pages', \App\Models\Page::where('parent_id', 0)->where('active', 1)->get());
+            
+        });
     }
 }
